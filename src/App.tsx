@@ -1,42 +1,16 @@
-import { useState } from "react";
-import { useRef } from "react";
 import "./App.css";
 import { formatTime } from "./utils/formatTime";
+import { useTimer } from "./components/hooks/useTimer";
 
 function App() {
-  const [inputTime, setInputTime] = useState("");
-  const [timeLeft, setTimeLeft] = useState(0);
-
-  const intervalId = useRef<number | null>(null);
-
-  function handleStart() {
-    if (intervalId.current !== null) {
-      clearInterval(intervalId.current);
-    }
-
-    setTimeLeft(Number(inputTime));
-
-    intervalId.current = setInterval(() => {
-      setTimeLeft((prev) => Math.max(prev - 1, 0));
-    }, 1000);
-  }
-
-  function handleBreak() {
-    if (intervalId.current !== null) {
-      clearInterval(intervalId.current);
-      intervalId.current = null;
-    }
-  }
-
-  function handleReset() {
-    if (intervalId.current !== null) {
-      clearInterval(intervalId.current);
-      intervalId.current = null;
-    }
-
-    setTimeLeft(0);
-    setInputTime("");
-  }
+  const {
+    inputTime,
+    setInputTime,
+    timeLeft,
+    handleStart,
+    handleBreak,
+    handleReset,
+  } = useTimer();
 
   return (
     <>
