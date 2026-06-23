@@ -7,6 +7,7 @@ function App() {
     inputTime,
     setInputTime,
     timeLeft,
+    setTimeLeft,
     handleStart,
     handleBreak,
     handleReset,
@@ -24,7 +25,10 @@ function App() {
             placeholder="sek"
             value={inputTime}
             onChange={(event) => {
-              setInputTime(event.target.value);
+              const value = event.target.value;
+
+              setInputTime(value);
+              setTimeLeft(Number(value));
             }}
           />
           <h2>Time left</h2>
