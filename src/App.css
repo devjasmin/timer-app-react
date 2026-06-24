@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  background-color: rgba(84, 81, 81, 0.894);
 }
 
 section {
@@ -8,7 +9,7 @@ section {
   background-color: var(--bg);
   margin: 5rem;
   padding: 1rem;
-  border: 2px solid rgb(13, 9, 223);
+  border: 3px solid rgb(86, 174, 180);
   border-radius: 6px;
 }
 
